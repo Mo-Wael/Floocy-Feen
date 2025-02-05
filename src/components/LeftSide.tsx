@@ -23,7 +23,7 @@ const LeftSide = ({} : IProps) => {
                 <table>
                     <thead>
                         <tr>
-                            <th>button</th>
+                            <th>cancel</th>
                             <th>trasnaction</th>
                             <th>amount</th>
                         </tr>

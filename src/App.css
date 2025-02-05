@@ -95,14 +95,14 @@ body {
 .transactions > h2 {
     background-color: #606060;
     margin: 0;
-    border-radius: 5px 5px 0 0;
+    border-radius: 15px 15px 0 0;
     border-bottom: 1px solid white;
     padding: 5px;
 }
 
 .transactions > table {
-    padding: 2.5%;
-    border-radius: 0 0 5px 5px;
+    padding: 4%;
+    border-radius: 0 0 15px 15px;
     background-color: #606060;
     border-collapse: collapse; /* Ensures borders don't double up */
     width: 100%; /* Ensures table spans properly */
@@ -127,4 +127,62 @@ body {
     border-top: 1px solid white; /* Adds a white line under each row */
     display: table; /* Ensures proper row display */
     width: calc(100% - 5%); /* Adjust width for padding */
+}
+
+.transactions > table > tbody > tr > td > button {
+    opacity: 0;
+    background-color: red;
+    color: black;
+    border-radius: 5px;
+    transition: opacity 0.3s ease; /* Add transition for smooth effect */
+}
+
+.transactions > table > tbody > tr > td:hover > button {
+    opacity: 1;
+}
+/* ****************************************** */
+
+/* right side */
+.right-side > h1 {
+    background-color: #606060;
+    width: 75%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.addExpanse {
+    width: 80%;
+    background-color: #606060;
+    border-radius: 15px;
+}
+.addExpanse > h2 {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    border-bottom: 1px solid white;
+}
+
+.addExpanse > form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.addExpanse > form > label {
+    font-size: large;
+    font-weight: 700;
+}
+
+.addExpanse > form > input {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.addExpanse > form > button {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
 }
