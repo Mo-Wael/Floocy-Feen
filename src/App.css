@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #454545;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+
+}
+
+/* Header Section */
+.header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px; /* Added padding for better spacing */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.left-header,
+.right-header {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+}
+
+/* -------------------------------------- */
+
+/* home section */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 89vh;
+    padding: 20px; 
+    flex-wrap: wrap;
+}
+
+.left-side, 
+.right-side {
+    padding: 0 5%;
+    border: 0.5px solid white;
+    display: flex;
+    /* justify-content: space-evenly; */
+    gap: 5%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;
+    height: 550px;
+    align-content: center;
+}
+
+/* Left side components */
+.topleft {
+    text-align: center;
+    width: 85%;
+    margin-bottom: 5%;
+}
+
+.topleft > h2 {
+    background-color: #606060;
+    padding: 2%;
+}
+
+.topleft > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.topleft > ul > li {
+    background-color: #606060;
+    padding: 2%;
+    width: 100%;
+}
+/* *** */
+.transactions {
+    text-align: center;
+    width: 85%;
+}
+.transactions > h2 {
+    background-color: #606060;
+    margin: 0;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid white;
+    padding: 5px;
+}
+
+.transactions > table {
+    padding: 2.5%;
+    border-radius: 0 0 5px 5px;
+    background-color: #606060;
+    border-collapse: collapse; /* Ensures borders don't double up */
+    width: 100%; /* Ensures table spans properly */
+    overflow-x: auto; /* Enables horizontal scrolling if data overflows */
+    display: block; /* Makes the table scrollable */
+    max-height: 250px; /* Limits table height before scrolling */
+}
+
+.transactions > table > thead {
+    text-align: center;
+    display: table; /* Ensures proper header display */
+    width: calc(100% - 5%); /* Adjust width for padding */
+}
+
+.transactions > table > tbody {
+    display: block; /* Allows tbody to scroll */
+    max-height: 350px; /* Limits table body height before scrolling */
+    width: 100%; /* Ensures proper width */
+}
+
+.transactions > table > tbody > tr {
+    border-top: 1px solid white; /* Adds a white line under each row */
+    display: table; /* Ensures proper row display */
+    width: calc(100% - 5%); /* Adjust width for padding */
+}
