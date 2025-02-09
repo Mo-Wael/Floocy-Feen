@@ -9,10 +9,7 @@ body {
     margin: 0;
     padding: 0;
 }
-
-.container {
-
-}
+/* ****************************************** */
 
 /* Header Section */
 .header {
@@ -21,17 +18,73 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 20px; /* Added padding for better spacing */
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 0 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    flex-wrap: wrap; /* Allows items to wrap if needed */
 }
 
+/* Style for buttons */
+.left-header > button, 
+.right-header > button,
+.left-header > a, 
+.right-header > a {
+    background-color: #454545;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: large;
+    cursor: pointer;
+    height: 40px;
+    text-decoration: none;
+}
+
+/* Left and Right Header */
 .left-header,
 .right-header {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+    flex-wrap: wrap; /* Ensures responsiveness */
+    align-items: center;
 }
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto; /* Allows height to adjust dynamically */
+        padding: 10px;
+        align-items: center;
+    }
+
+    .left-header, .right-header {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .left-header > button, .right-header > button {
+        height: 40px;
+        font-size: medium;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 5px;
+    }
+
+    .left-header, .right-header {
+        flex-direction: column;
+        gap: 10px; /* Reduced gap for small screens */
+        align-items: center;
+    }
+
+    .left-header > button, .right-header > button {
+        width: 100%; /* Full width buttons on very small screens */
+    }
+}
+
 
 /* -------------------------------------- */
 
@@ -51,7 +104,7 @@ body {
     border: 0.5px solid white;
     display: flex;
     /* justify-content: space-evenly; */
-    gap: 5%;
+    /* gap: 5%; */
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
@@ -170,14 +223,15 @@ body {
 }
 
 .addExpanse > form > label {
-    font-size: large;
+    font-size: medium;
     font-weight: 700;
 }
 
 .addExpanse > form > input {
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     margin-bottom: 20px;
+    border: none;
 }
 
 .addExpanse > form > button {
@@ -185,4 +239,113 @@ body {
     border-radius: 5px;
     font-weight: 700;
     cursor: pointer;
+    border: none;
+}
+/* ****************************************** */
+
+/* Calendar container styling */
+.calendar-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Modal styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal content */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    position: relative;
+    color: black;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+
+/* Expense list */
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content li {
+    background: #f8f8f8;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* Container */
+.calendar {
+    max-width: 450px;
+    margin: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header (Month & Year) */
+.react-calendar__navigation {
+    background: #606060;
+    color: black;
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+}
+
+/* Days */
+.react-calendar__tile {
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.react-calendar__tile:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Selected Date */
+.react-calendar__tile--active {
+    background: #606060 !important;
+    color: black;
+    font-weight: bold;
+}
+
+/* Disabled Dates */
+.react-calendar__tile--disabled {
+    color: #d3d3d3;
+}
+
+/* Weekdays */
+.react-calendar__month-view__weekdays {
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #e0e0e0;
+    color: black;
+    padding: 10px 0;
+    border-radius: 5px;
 }

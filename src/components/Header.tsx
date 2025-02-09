@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 interface IProps {
 
 }
@@ -7,11 +8,11 @@ const Header = ({} : IProps) => {
         <div className="header">
             <div className="left-header">
                 <h1>Flowcy Feen 💸</h1>
-                <button title="lang" className="langButton">En / AR</button>
+                <button type="button" >En / AR</button>
             </div>
             <div className="right-header">
-                <button title="Home">Home</button>
-                <button title="Calendar">Calendar</button>
+                <Link to='/' >Home</Link>
+                <Link to='/calendar' >Calendar</Link>
             </div>
         </div>  
     )

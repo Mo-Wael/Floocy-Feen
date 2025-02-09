@@ -1,14 +1,16 @@
-import { useState } from 'react'
 import './App.css'
-import Home from './pages/Home'
-import Header from './components/Header'
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from './pages/AppRoutes'
+import { ExpenseProvider } from './context/expanseContext';
 
 function App() {
 
   return (
-    <>
-      <Home />
-    </>
+      <BrowserRouter>
+        <ExpenseProvider>
+          <AppRoutes />
+        </ExpenseProvider>
+    </BrowserRouter>
   )
 }
 
