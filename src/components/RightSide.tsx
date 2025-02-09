@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { ExpenseContext } from "../context/expanseContext";
 import { Timestamp } from "firebase/firestore";
+import swal from "sweetalert";
 
 const RightSide = () => {
     const expenseContext = useContext(ExpenseContext);
@@ -20,7 +21,7 @@ const RightSide = () => {
     const addExpenseHandler = async () => {
         // console.log("The title will be: ",title, "and the amount will be: ", amount);
         if (title.trim() === '' || amount === 0) {
-            alert("Please fill the form correctly");
+            swal("Please fill the form correctly");
             return;
         }
 
