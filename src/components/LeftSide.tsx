@@ -18,6 +18,8 @@ const LeftSide = () => {
     const totalBalance = expenses.reduce((total, current) => total + current.amount, 0);
     const totalDeposit = expenses.filter((eachExpense) => eachExpense.amount > 0).reduce((total, current) => total + current.amount, 0);
     const totalWithdraw = expenses.filter((eachExpense) => eachExpense.amount < 0).reduce((total, current) => total + Math.abs(current.amount), 0);
+    const todayExpanses = expenses.filter((eachExpense) => eachExpense.date.toDate().toDateString() === new Date().toDateString());
+    
 
     return (
         <div className="left-side">
@@ -53,7 +55,7 @@ const LeftSide = () => {
                         </tr>
                         */}
                         {
-                            expenses.map((eachExpense) => (
+                            todayExpanses.map((eachExpense) => (
                             <tr key={eachExpense.id}>
                                 <td><button type="button" onClick={() => deleteExpense(eachExpense.id)}>x</button></td>
                                 <td>{eachExpense.title}</td>
