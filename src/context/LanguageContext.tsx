@@ -20,7 +20,7 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     };
 
     // Translation function
-    const t = (key: string) => translations[language][key] || key;
+    const t = (key: string) => (translations as Record<string, Record<string, string>>)[language][key] || key;
 
     return (
         <LanguageContext.Provider value={{ language, toggleLanguage, t }}>

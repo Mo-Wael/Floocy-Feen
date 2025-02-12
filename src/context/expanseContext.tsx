@@ -4,7 +4,7 @@ import { collection, addDoc, Timestamp, deleteDoc, doc, getDocs } from "firebase
 
 // Expense Interface
 export interface IExpense {
-    id?: string;
+    id: string;
     title: string;
     amount: number;
     date: Timestamp;
