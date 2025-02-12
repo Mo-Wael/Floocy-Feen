@@ -1,3 +1,19 @@
+# Floocy Feen 💸  
+
+A simple yet powerful **Expense Tracker Web Application** built with:  
+- ⚛️ **React** (with TypeScript & Vite)  
+- 🔥 **Firebase** (for database & authentication)  
+
+---
+
+## ✨ Features  
+✔️ **Track Daily Expenses** – Add and delete expenses with ease.  
+✔️ **Quick Stats** – Get an overview of your **total balance, deposits, and withdrawals**.  
+✔️ **Monthly Expense Storage** – View and manage expenses by month.  
+✔️ **Multi-language Support** – Available in **English & Arabic** (with RTL support).  
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

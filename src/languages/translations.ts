@@ -1,6 +1,6 @@
 const translations = {
     en: {
-        title: "Flowcy Feen 💸",
+        title: "Floocy Feen 💸",
         home: "Home",
         calendar: "Calendar",
         totalBalance: "Total Balance:",
