@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState, useEffect, useCallback } from "react";
-import { db } from "../components/firebase";
+import { db } from "../../firebase";
 import { collection, addDoc, Timestamp, deleteDoc, doc, getDocs } from "firebase/firestore";
 
 // Expense Interface
