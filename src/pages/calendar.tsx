@@ -3,11 +3,13 @@ import Calendar from "react-calendar";
 import Header from "../components/Header";
 import { ExpenseContext } from "../context/expanseContext";
 import { IExpense } from "../context/expanseContext";
+import { useLanguage } from "../context/LanguageContext";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 const CalendarComponent = () => {
+    const {t, language} = useLanguage();
     const { expenses } = useContext(ExpenseContext) || { expenses: [] };
 
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -40,12 +42,13 @@ const CalendarComponent = () => {
         <div>
             <Header />
             <div className="calendar-container">
-            <h1>Select a Date to get the Expenses</h1>
-            <h2>Expenses on {new Date().toLocaleDateString()}</h2>
+            <h1>{t("calendarTitle")}</h1>
+            <h2>{t("calenderToday")} {new Intl.DateTimeFormat(language, {day: "numeric", month: "long", year: "numeric"}).format(new Date())}</h2>
                 <Calendar
                     calendarType="islamic"
                     className="calendar"
-                    locale="en-AR"
+                    locale={language === 'ar'? 'ar': 'en'}
+                    
                     onClickDay={openModal}
                 />
 

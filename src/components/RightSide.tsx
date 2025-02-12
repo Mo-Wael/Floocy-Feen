@@ -2,8 +2,10 @@ import { useContext, useState } from "react"
 import { ExpenseContext } from "../context/expanseContext";
 import { Timestamp } from "firebase/firestore";
 import swal from "sweetalert";
+import { useLanguage } from "../context/LanguageContext";
 
 const RightSide = () => {
+    const {t, language} = useLanguage();
     const expenseContext = useContext(ExpenseContext);
     const [title, setTitle] = useState<string>('');
     const [amount, setAmount] = useState<number>(0);
@@ -46,23 +48,25 @@ const RightSide = () => {
 
     return (
         <div className="right-side">
-            <h1>Today<br/>{new Date().toLocaleDateString()}</h1>
+            <h1>{t("today")}<br/>{new Intl.DateTimeFormat(language, {day: "numeric", month: "long", year: "numeric"}).format(new Date())}</h1>
             <div className="addExpanse">
-                <h2>Add Expanse</h2>
-                <form onSubmit={(e) => e.preventDefault()}>
-                    <label htmlFor="title">for What?</label>
-                    <input type="text" id="title" placeholder="Expanse Name" value={title} onChange={(e) => setTitle(e.target.value)} />
-                    <label htmlFor="amount">how much?</label>
+                <h2>{t("addExpense")}</h2>
+                <form onSubmit={(e) => e.preventDefault()} style={language === 'ar'? {direction: "rtl"} : {direction: "ltr"}}>
+                    <label htmlFor="title">{t("addReason")}</label>
+                    <input type="text" id="title" placeholder={language === 'ar' ? "السبب" : "For What?"} value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <label htmlFor="amount">{t("howMuch")}</label>
                     {/* <label htmlFor="pay">Paying (-)</label>
                     <input type="radio" id="pay" name="pay" value={"Deposit"} onChange={e => setAmount(Number(e.target.value) || 0)} />
                     <label htmlFor="save">Saving (+)</label>
                     <input type="radio" id="save" name="save" value={"widthdraw"} onChange={e => setAmount(Number(e.target.value) || 0)} /> */}
-                    <label htmlFor="pay">Paying (-)</label>
+                    <label htmlFor="pay">{t("pay")} (-)</label>
                     <input type="radio" id="pay" name="expenseType" checked={isPaying} onChange={() => setIsPaying(true)} />
-                    <label htmlFor="save">Saving (+)</label>
+                    <label htmlFor="save">{t("save")} (+)</label>
                     <input type="radio" id="save" name="expenseType" checked={!isPaying} onChange={() => setIsPaying(false)} />
                     <input type="number" id="amount" placeholder="Expanse Value" value={amount} onChange={e => setAmount(Number(e.target.value) || 0)} />
-                    <button type="submit" className="addButton" onClick={addExpenseHandler}>{loading ? "Adding📝" : "Add your Expense"}</button>
+                    <button type="submit" className="addButton" onClick={addExpenseHandler}>
+                        {loading ? (language === 'ar' ? "إضافة📝" : "Adding📝") : (language === 'ar' ? "سجل عندك" : "Add your Expense")}
+                    </button>
                 </form>
             </div>
         </div>  
