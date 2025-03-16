@@ -63,7 +63,7 @@ const RightSide = () => {
                     <input type="radio" id="pay" name="expenseType" checked={isPaying} onChange={() => setIsPaying(true)} />
                     <label htmlFor="save">{t("save")} (+)</label>
                     <input type="radio" id="save" name="expenseType" checked={!isPaying} onChange={() => setIsPaying(false)} />
-                    <input type="number" id="amount" placeholder="Expanse Value" value={amount} onChange={e => setAmount(Number(e.target.value) || 0)} />
+                    <input type="number" id="amount" placeholder="Expanse Value" value={amount || ""} onChange={e => setAmount(Number(e.target.value) || 0)} />
                     <button type="submit" className="addButton" onClick={addExpenseHandler}>
                         {loading ? (language === 'ar' ? "إضافة📝" : "Adding📝") : (language === 'ar' ? "سجل عندك" : "Add your Expense")}
                     </button>

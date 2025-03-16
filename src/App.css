@@ -10,7 +10,83 @@ body {
     padding: 0;
 }
 /* ****************************************** */
+/* starting section */
+.startingScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 
+.Sbutton {
+    text-decoration: none;
+    text-align: center;
+    background-color: #606060;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    width: 200px;
+}
+
+/* ****************************************** */
+/* login Section */
+.login, .signup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login > form, .signup > form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login > form > label, .signup > form > label {
+    font-size: large;
+}
+
+.login > form > input, .signup > form > input {
+    background-color: #606060;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    width: 200px;
+}
+
+.login > form > button, .signup > form > button {
+    text-decoration: none;
+    text-align: center;
+    background-color: #606060;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    margin-top: 25px;
+    width: 200px;
+}
+
+.error-message { 
+    color: red;
+    font-size: large;
+    margin-top: 10;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+
+/* ****************************************** */
 /* Header Section */
 .header {
     height: 80px;
@@ -46,7 +122,7 @@ body {
     display: flex;
     gap: 20px;
     flex-wrap: wrap; /* Ensures responsiveness */
-    align-items: center;
+    align-items: baseline;
 }
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */

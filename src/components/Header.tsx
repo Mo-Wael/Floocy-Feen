@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import { useLanguage } from "../context/LanguageContext"
-interface IProps {
+import { logout } from "../auth/auth"
+import { useNavigate } from "react-router-dom"
 
-}
-
-const Header = ({} : IProps) => {
-    const {t, language, toggleLanguage} = useLanguage()
+const Header = () => {
+    const {t, language, toggleLanguage} = useLanguage();
+    const navigate = useNavigate();
 
     return (
         <div className="header">
@@ -14,8 +14,9 @@ const Header = ({} : IProps) => {
                 <button type="button" onClick={toggleLanguage}>{language === "en" ? "عربي": "English"}</button>
             </div>
             <div className="right-header">
-                <Link to='/' >{t("home")}</Link>
+                <Link to='/home' >{t("home")}</Link>
                 <Link to='/calendar' >{t("calendar")}</Link>
+                <button onClick={() => {logout(); navigate('/Starting')}}>{t("logout")}</button>
             </div>
         </div>  
     )
