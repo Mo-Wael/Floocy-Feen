@@ -1,3 +1,4 @@
+import { onAuthStateChanged } from "firebase/auth";
 import { createContext, ReactNode, useState, useEffect, useCallback } from "react";
 import { db, auth } from "../../firebase";
 import { collection, addDoc, Timestamp, deleteDoc, doc, getDocs } from "firebase/firestore";
@@ -30,17 +31,20 @@ export const ExpenseProvider = ({ children }: { children: ReactNode }) => {
         try {
             const user = auth.currentUser;
             if (!user) {
-                console.error("User not logged in");
+                console.error("User not logged in.");
                 return;
             }
     
-            const querySnapshot = await getDocs(collection(db, `expenses/${user.uid}/items`)); // Fetch user-specific data
+            console.log("Fetching expenses for user:", user.uid);
+            const querySnapshot = await getDocs(collection(db, `expenses/${user.uid}/items`));
+    
             const expensesList: IExpense[] = querySnapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data(),
             })) as IExpense[];
     
             setExpenses(expensesList);
+            console.log("Expenses fetched successfully:", expensesList);
         } catch (error) {
             console.error("Error fetching expenses:", error);
         } finally {
@@ -48,11 +52,22 @@ export const ExpenseProvider = ({ children }: { children: ReactNode }) => {
         }
     }, []);
     
+    
 
     // Fetch expenses when provider mounts
     useEffect(() => {
-        fetchExpenses();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                fetchExpenses();
+            } else {
+                console.error("User is not logged in");
+                setExpenses([]);
+            }
+        });
+
+        return () => unsubscribe();
     }, [fetchExpenses]);
+
 
     // Add a new expense
     const addExpense = useCallback(async (newExpense: Omit<IExpense, "id">) => {
@@ -60,17 +75,22 @@ export const ExpenseProvider = ({ children }: { children: ReactNode }) => {
         try {
             const user = auth.currentUser;
             if (!user) {
+                console.error("No authenticated user found.");
                 return;
             }
     
-            const docRef = await addDoc(collection(db, `expenses/${user.uid}/items`), newExpense);
+            const expenseRef = collection(db, `expenses/${user.uid}/items`);
+            const docRef = await addDoc(expenseRef, newExpense);
+    
             setExpenses((prev) => [...prev, { ...newExpense, id: docRef.id }]);
+            console.log("Expense successfully added:", docRef.id);
         } catch (error) {
             console.error("Error adding expense:", error);
         } finally {
             setLoading(false);
         }
     }, []);
+    
     
 
     // Delete an expense
