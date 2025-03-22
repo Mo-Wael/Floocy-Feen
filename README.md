@@ -1,18 +1,22 @@
-# Floocy Feen 💸  
+# 💸 Floocy Feen  
 
-A simple yet powerful Expense Tracker Web Application built with:
-- ⚛️ React (TypeScript & Vite)
-- 🔥 Firebase (Database & Authentication)
+A simple yet powerful **Expense Tracker Web Application** built with:  
+- ⚛️ **React** (TypeScript & Vite)  
+- 🔥 **Firebase** (Database & Authentication)  
 
 ---
 
 ## ✨ Features  
-✔️ **Track Daily Expenses** – Easily add and delete expenses.
-✔️ **Quick Stats** – Get an overview of your **total balance, deposits, and withdrawals**.
-✔️ **Monthly Expense Storage** – View and manage expenses by month.
-✔️ **Multi-language Support** – Available in **English & Arabic** (with full RTL support).
-✔️ **Authentication** – Secure access ensures only you can **create, delete, and view your expenses**.
-✔️ **Responsive Design** – Optimized for all devices, making expense tracking convenient anywhere.
+✔️ **Track Daily Expenses** – Easily add, delete, and manage expenses.  
+✔️ **Quick Stats** – Get an overview of your **total balance, deposits, and withdrawals**.  
+✔️ **Monthly Expense Storage** – View and manage expenses by month.  
+✔️ **Multi-language Support** – Available in **English & Arabic** (with full RTL support).  
+✔️ **Secure Authentication** – Only you can access, create, delete, and view your expenses.  
+✔️ **Responsive Design** – Optimized for all devices, making expense tracking easy anytime, anywhere.  
+
+---
+
+🚀 Stay on top of your finances with **Floocy Feen**!
 
 ---
 
